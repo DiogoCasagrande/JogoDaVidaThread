@@ -1,0 +1,231 @@
+package JogoDaVida;
+
+public class ThreadMatriz extends Thread {
+
+    int matrizA[][];
+    int matrizB[][];
+    int contLive;
+    int m;
+
+    
+    public int[][] run(int[][] matriz, int m) {
+        matrizA = matriz;
+        matrizB = new int[m][m];
+        this.m = m;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < m; j++) {
+                //Primeira linha
+                if (i == 0) {
+                    //PrimeiraLinha && primeira coluna
+                    if (j == 0) {
+                        //direita
+                        if (matrizA[i][j + 1] == 1) {
+                            contLive++;
+                        }
+                        //direita baixo
+                        if (matrizA[i + 1][j + 1] == 1) {
+                            contLive++;
+                        }
+                        //baixo
+                        if (matrizA[i + 1][j] == 1) {
+                            contLive++;
+                        }
+                        //Primeira Linha && ultima Coluna
+                    } else if (j == m - 1) {
+                        //esquerda
+                        if (matrizA[i][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //esquerda Baixo
+                        if (matrizA[i + 1][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //baixo
+                        if (matrizA[i + 1][j] == 1) {
+                            contLive++;
+                        }
+                        //primeira linha !primeiraColuna && !ultimaColuna
+                    } else {
+                        //esquerda
+                        if (matrizA[i][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //direita
+                        if (matrizA[i][j + 1] == 1) {
+                            contLive++;
+                        }
+                        //BaixoEsquerda
+                        if (matrizA[i + 1][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //Baixo
+                        if (matrizA[i + 1][j] == 1) {
+                            contLive++;
+                        }
+                        //BaixoDireita
+                        if (matrizA[i + 1][j + 1] == 1) {
+                            contLive++;
+                        }
+                    }
+                    //ultima linha
+                } else if (i == m - 1) {
+                    //UltimaLinha && Primeira coluna
+                    if (j == 0) {
+                        //cima
+                        if (matrizA[i - 1][j] == 1) {
+                            contLive++;
+                        }
+                        //cimaDireita
+                        if (matrizA[i - 1][j + 1] == 1) {
+                            contLive++;
+                        }
+                        //Direita
+                        if (matrizA[i][j + 1] == 1) {
+                            contLive++;
+                        }
+                        //UltimaLinha && ultima coluna
+                    } else if (j == m - 1) {
+                        //cima
+                        if (matrizA[i - 1][j] == 1) {
+                            contLive++;
+                        }
+                        //cimaEsquerda
+                        if (matrizA[i - 1][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //esquerda
+                        if (matrizA[i][j - 1] == 1) {
+                            contLive++;
+                        }
+                    } //ultima linha && !primeiraColuna && !ultimaColuna
+                    else {
+                        //Esquerda
+                        if (matrizA[i][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //Direita
+                        if (matrizA[i][j + 1] == 1) {
+                            contLive++;
+                        }
+                        //Cima
+                        if (matrizA[i - 1][j] == 1) {
+                            contLive++;
+                        }
+                        //CimaEsquerda
+                        if (matrizA[i - 1][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //CimaDireita
+                        if (matrizA[i - 1][j + 1] == 1) {
+                            contLive++;
+                        }
+                    }
+                } //linhas do meio, aqui teram 3 formas diferente j == 0, j == m - 1, outros
+                else //meio && primeiraColuna
+                {
+                    if (j == 0) {
+                        //cima
+                        if (matrizA[i - 1][j] == 1) {
+                            contLive++;
+                        }
+                        //cimaDireita
+                        if (matrizA[i - 1][j + 1] == 1) {
+                            contLive++;
+                        }
+                        //Direita
+                        if (matrizA[i][j + 1] == 1) {
+                            contLive++;
+                        }
+                        //Baixo
+                        if (matrizA[i + 1][j] == 1) {
+                            contLive++;
+                        }
+                        //BaixoDireita
+                        if (matrizA[i + 1][j + 1] == 1) {
+                            contLive++;
+                        }
+                    } //Meio && Ultima Coluna
+                    else if (j == m - 1) {
+                        //cima
+                        if (matrizA[i - 1][j] == 1) {
+                            contLive++;
+                        }
+                        //cimaEsquerda
+                        if (matrizA[i - 1][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //Esquerda
+                        if (matrizA[i][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //Baixo
+                        if (matrizA[i + 1][j] == 1) {
+                            contLive++;
+                        }
+                        //BaixoEsquerda
+                        if (matrizA[i + 1][j - 1] == 1) {
+                            contLive++;
+                        }
+                    } //Meio && !primeiraColuna && !ultimaColuna
+                    else {
+                        //Cima
+                        if (matrizA[i - 1][j] == 1) {
+                            contLive++;
+                        }
+                        //CimaEsquerda
+                        if (matrizA[i - 1][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //CimaDireita
+                        if (matrizA[i - 1][j + 1] == 1) {
+                            contLive++;
+                        }
+                        //Esquerda
+                        if (matrizA[i][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //Direita
+                        if (matrizA[i][j + 1] == 1) {
+                            contLive++;
+                        }
+                        //Baixo
+                        if (matrizA[i + 1][j] == 1) {
+                            contLive++;
+                        }
+                        //BaixoEsquerda
+                        if (matrizA[i + 1][j - 1] == 1) {
+                            contLive++;
+                        }
+                        //BaixoDireita
+                        if (matrizA[i + 1][j + 1] == 1) {
+                            contLive++;
+                        }
+                    }
+                }
+                //validar o resultado e passar pra matrizB
+                /*
+             - Se a celula esta VIVA e tem menos de 2 ou mais de 3 vizinhos vivos ela MORRE.
+             - Uma celula VIVA, adjacente a 2 ou 3 celulas vivas permanece VIVA.
+             - Uma celula MORTA, adjacente a 3 celulas vivas VIVE.
+             - Se a celula esta MORTA e tem menos ou mais de 3 vizinhos vivos ela continua MORTA.
+                 */
+                //validacoes de viva
+                if (matrizA[i][j] == 1) {
+                    if (contLive < 2 || contLive > 3) {
+                        matrizB[i][j] = 0;
+                    } else if (contLive == 2 || contLive == 3) {
+                        matrizB[i][j] = 1;
+                    }
+                } //validacoes de morta
+                else if (contLive == 3) {
+                    matrizB[i][j] = 1;
+                } else {
+                    matrizB[i][j] = 0;
+                }
+                contLive = 0;
+            }
+        }
+        return matrizB;
+    }
+}
