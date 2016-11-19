@@ -16,7 +16,7 @@ public class JogoVida {
 
     static ThreadMatriz threads[];
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
         //entrada (.txt + quantidade de geracoes)
         try {
             Input(args[0]);
@@ -28,6 +28,9 @@ public class JogoVida {
 
                 threads[0].start(X);
                 threads[1].start(X);
+                
+                threads[0].join();
+                threads[1].join();
             }
 
             Write();
