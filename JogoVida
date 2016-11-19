@@ -33,7 +33,10 @@ public class JogoVida {
                 threads[0].join();
                 threads[1].join();
             }
-
+            
+            //metodo pra concatenar a matriz.
+            //concat();
+            
             Write();
 
         } catch (FileNotFoundException e) {
