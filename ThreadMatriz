@@ -214,7 +214,7 @@ public class ThreadMatriz extends Thread {
                 if (matrizA[i][j] == 1) {
                     if (contLive < 2 || contLive > 3) {
                         matrizB[i][j] = 0;
-                    } else if (contLive == 2 || contLive == 3) {
+                    } else if (contLive == 3) {
                         matrizB[i][j] = 1;
                     }
                 } //validacoes de morta
